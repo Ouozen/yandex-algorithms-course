@@ -2,7 +2,7 @@ from unittest.mock import patch
 from tqdm import tqdm
 
 
-def my_function() -> int:
+def algorithm() -> int:
     P, V = list(map(int, input().split(' ')))
     Q, M = list(map(int, input().split(' ')))
 
@@ -24,9 +24,9 @@ def my_function() -> int:
         return (V1 - V2) + (M1 - M2) + mod
 
 
-def test_my_function(f1, f2, answer) -> None:
+def test_algorithm(f1, f2, answer) -> None:
     with patch('builtins.input', side_effect=[f1, f2]):
-        test_answer = my_function()
+        test_answer = algorithm()
         print(test_answer)
         assert test_answer == answer
 
@@ -42,4 +42,4 @@ if __name__ == "__main__":
         ['1 5', '0 2', 11]
     ]
     for f1, f2, answer in tqdm(test_case):
-        test_my_function(f1, f2, answer)
+        test_algorithm(f1, f2, answer)

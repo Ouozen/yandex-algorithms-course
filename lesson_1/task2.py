@@ -2,7 +2,7 @@ from unittest.mock import patch
 from tqdm import tqdm
 
 
-def my_function():
+def algorithm():
     G1_1, G2_1 = list(map(int, input().split(':')))
     G1_2, G2_2 = list(map(int, input().split(':')))
     type = int(input())
@@ -18,9 +18,9 @@ def my_function():
         return l + 1
 
 
-def test_my_function(f1, f2, f3, answer):
+def test_algorithm(f1, f2, f3, answer):
     with patch('builtins.input', side_effect=[f1, f2, f3]):
-        test_answer = my_function()
+        test_answer = algorithm()
         # print(test_answer)
         assert test_answer == answer
 
@@ -53,4 +53,4 @@ if __name__ == "__main__":
         ['2:0', '3:0', '2', 0],
     ]
     for f1, f2, f3, answer in tqdm(test_case):
-        test_my_function(f1, f2, f3, answer)
+        test_algorithm(f1, f2, f3, answer)
