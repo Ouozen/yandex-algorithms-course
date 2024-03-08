@@ -23,7 +23,7 @@ def algorithm():
 
 
 def test_algorithm(f1, f2, f3, f4, f5, f6, answer):
-    with patch('builtins.input', side_effect=[f1, f2, f3, f4, f5, f6]):
+    with patch("builtins.input", side_effect=[f1, f2, f3, f4, f5, f6]):
         test_answer = algorithm()
         # print(test_answer)
         assert test_answer == answer
@@ -31,7 +31,7 @@ def test_algorithm(f1, f2, f3, f4, f5, f6, answer):
 
 if __name__ == "__main__":
     test_case = [
-        ['5', '1', '4', '12', '9', '0', 8]
+        ["5", "1", "4", "12", "9", "0", 8]
     ]
     for f1, f2, f3, f4, f5, f6, answer in tqdm(test_case):
         test_algorithm(f1, f2, f3, f4, f5, f6, answer)

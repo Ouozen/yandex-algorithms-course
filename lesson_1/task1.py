@@ -3,8 +3,8 @@ from tqdm import tqdm
 
 
 def algorithm() -> int:
-    P, V = list(map(int, input().split(' ')))
-    Q, M = list(map(int, input().split(' ')))
+    P, V = list(map(int, input().split(" ")))
+    Q, M = list(map(int, input().split(" ")))
 
     # определим конечные точки Маши и Васи
     V1, V2 = P + V, P - V
@@ -25,7 +25,7 @@ def algorithm() -> int:
 
 
 def test_algorithm(f1, f2, answer) -> None:
-    with patch('builtins.input', side_effect=[f1, f2]):
+    with patch("builtins.input", side_effect=[f1, f2]):
         test_answer = algorithm()
         print(test_answer)
         assert test_answer == answer
@@ -33,13 +33,13 @@ def test_algorithm(f1, f2, answer) -> None:
 
 if __name__ == "__main__":
     test_case = [
-        ['0 2', '10 3', 12],
-        ['0 5', '7 3', 16],
-        ['7 3', '0 5', 16],
-        ['0 7', '12 5', 25],
-        ['0 7', '0 7', 15],
-        ['0 2', '1 5', 11],
-        ['1 5', '0 2', 11]
+        ["0 2", "10 3", 12],
+        ["0 5", "7 3", 16],
+        ["7 3", "0 5", 16],
+        ["0 7", "12 5", 25],
+        ["0 7", "0 7", 15],
+        ["0 2", "1 5", 11],
+        ["1 5", "0 2", 11]
     ]
     for f1, f2, answer in tqdm(test_case):
         test_algorithm(f1, f2, answer)
