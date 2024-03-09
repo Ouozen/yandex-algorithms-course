@@ -31,10 +31,10 @@ def algorithm() -> int:
 
     for figure, coord_list in figures.items():
         coords = coord_list[0]
-        doc = coord_list[1:]
+        pattern = coord_list[1:]
         for x_fig, y_fig in coords:
             cnt -= 1 # удаляем фигуру которую сейчас исследуем
-            for x_mul, y_mul in doc:
+            for x_mul, y_mul in pattern:
                 step = True
                 step_plus = 1
                 while step:
@@ -53,17 +53,15 @@ def algorithm() -> int:
                         cnt -= 1
                         list_coord.append([x_now, y_now])
 
-                    # if [x_now, y_now] in coord_figures:
-                    #     step = False
                     step_plus += 1
-    return cnt, list_coord, coord_figures
+    return cnt
 
 
 def test_algorithm(*args):
     with patch("builtins.input", side_effect=[*args[:-1]]):
         test_answer = algorithm()
-        print(test_answer)
-        assert test_answer[0] == args[-1]
+        # print(test_answer)
+        assert test_answer == args[-1]
 
 
 if __name__ == "__main__":
