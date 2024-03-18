@@ -14,6 +14,10 @@ def algorithm():
         berries.append([*inp, diff_inp, step])
 
     sorted_berries = sorted(berries, reverse=True, key=lambda berry: berry[2])
+    for index, berry in enumerate(sorted_berries):
+        if berry[2] < 0:
+            sorted_berries = sorted_berries[:index] + sorted(sorted_berries[index:], reverse=True, key=lambda berry: berry[0])
+            break
 
     for berry in sorted_berries:
         point += berry[0]
