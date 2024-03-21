@@ -10,8 +10,15 @@ def algorithm():
         K = int(input())
         like_tracks = list(input().split(' '))
         for i in like_tracks:
-            pass
+            all_tracks[i] = all_tracks.get(i, 0) + 1
 
+    list_result_track = list()
+    for key, item in all_tracks.items():
+        if item == N:
+            list_result_track.append(key)
+
+    result_tracks = sorted(list_result_track)
+    return str(len(result_tracks)) + ' ' + ' '.join(result_tracks)
 
 
 def test_algorithm(*args):
