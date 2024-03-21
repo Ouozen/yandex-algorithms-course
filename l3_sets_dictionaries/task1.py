@@ -4,7 +4,14 @@ from tqdm import tqdm
 
 
 def algorithm():
-    pass
+    N = int(input())
+    all_tracks = dict()
+    for _ in range(N):
+        K = int(input())
+        like_tracks = list(input().split(' '))
+        for i in like_tracks:
+            pass
+
 
 
 def test_algorithm(*args):
